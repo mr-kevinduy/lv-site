@@ -1,0 +1,67 @@
+services:
+    app:
+        image: kevinduy/php
+        restart: always
+        tty: true
+        volumes:
+            - ./:/var/www/app
+        working_dir: /var/www/app
+        ports:
+            - "5173:5173"
+            - "8000:8000"
+        links:
+            - db
+        environment:
+            - CHOKIDAR_USEPOLLING=true
+        # extra_hosts:
+        #     - "github.com:192.30.255.113"
+        #     - "assets-cdn.github.com:151.101.0.133"
+        #     - "avatars2.githubusercontent.com:151.101.64.133"
+        #     - "avatars1.githubusercontent.com:151.101.64.133"
+        #     - "avatars0.githubusercontent.com:151.101.64.133"
+        #     - "collector.githubapp.com:52.73.244.200"
+        #     - "api.github.com:192.30.255.117"
+        #     - "help.github.com:185.199.109.153"
+        #     - "codeload.github.com:192.30.255.120"
+        #     - "gist.github.com:192.30.255.118"
+
+    nginx:
+        image: kevinduy/nginx
+        restart: always
+        tty: true
+        volumes:
+            - ./:/var/www/app
+            - ./docker/nginx/conf.d:/etc/nginx/conf.d
+            - ./docker/nginx/install:/install
+        ports:
+            - "80:80"
+        command: /bin/bash -c "nginx"
+
+    db:
+        image: mysql:8
+        restart: always
+        volumes:
+            - ./.docker/db/mysql:/var/lib/mysql
+            - ./.docker/db/data:/var/data
+            - ./docker/mysql/conf.d/db.cnf:/etc/mysql/conf.d/db.cnf
+        working_dir: /var/data
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_DATABASE: laravel
+            MYSQL_ROOT_PASSWORD: root
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - "8080:80"
+        depends_on:
+            - db
+        environment:
+            PMA_HOST: db
+            PMA_PORT: 3306
+            PMA_USER: root
+            PMA_PASSWORD: root
+            PMA_USER_CONFIG_BASE64: PD9waHAKJGNmZ1snTG9naW5Db29raWVWYWxpZGl0eSddID0gODY0MDA7
+        volumes:
+            - ./docker/phpmyadmin/sessions:/sessions
