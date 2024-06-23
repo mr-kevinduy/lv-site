@@ -1,0 +1,1 @@
+<svg class="size-5 sm:size-6" viewBox="0 0 10 11" xmlns="http://www.w3.org/2000/svg"><title>Polygon</title><path d="M5.036 1.965l-3.492 1.94v3.88l3.492 1.94 3.492-1.94v-3.88l-3.492-1.94zm0-1.12l4.5 2.5v5l-4.5 2.5-4.5-2.5v-5l4.5-2.5z" fill="currentColor" fill-rule="nonzero"/></svg>
