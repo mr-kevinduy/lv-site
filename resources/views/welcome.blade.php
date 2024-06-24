@@ -25,7 +25,14 @@
                                         ['Host IP', getIPByEndpoint($_SERVER['HTTP_HOST'])],
                                         ['SERVER_ADDR', $_SERVER['SERVER_ADDR']],
                                         ['EC2 Hostname (OS)', getServerHostname().' ('.getServerOS('pretty_name').')'],
-                                        ['---------------------------', '------'],
+                                        ['Client Global IP', request()->ip()],
+                                    ]"
+                                />
+
+                                <x-table
+                                    class="mt-4"
+                                    :columns="['Config', 'Value']"
+                                    :records="[
                                         ['VPC CIDR', isset($_SERVER['AWS_VPC']) ? $_SERVER['AWS_VPC'] : ''],
                                         [' - Subnet Public 1', isset($_SERVER['AWS_SUBNET_PUBLIC_1']) ? $_SERVER['AWS_SUBNET_PUBLIC_1'] : ''],
                                         [' - Subnet Public 2', isset($_SERVER['AWS_SUBNET_PUBLIC_2']) ? $_SERVER['AWS_SUBNET_PUBLIC_2'] : ''],
@@ -35,7 +42,6 @@
                                         ['AWS EC2 <br/> - Private IP <br/> - Public IP', ' <br/> '.(isset($_SERVER['AWS_EC2_PUBLIC_IP']) ? $_SERVER['AWS_EC2_PUBLIC_IP'] : 'N/A').' <br/> '.(isset($_SERVER['AWS_EC2_PRIVATE_IP']) ? $_SERVER['AWS_EC2_PRIVATE_IP'] : 'N/A')],
                                         ['AWS LB Internal <br/> - Private IP', (isset($_SERVER['AWS_LB_PRIVATE']) ? $_SERVER['AWS_LB_PRIVATE'] : 'N/A').' <br/> '.(isset($_SERVER['AWS_LB_PRIVATE_IP']) ? $_SERVER['AWS_LB_PRIVATE_IP'] : 'N/A')],
                                         ['AWS LB Internet facing <br/> - Public IP', (isset($_SERVER['AWS_LB_PUBLIC']) ? $_SERVER['AWS_LB_PUBLIC'] : 'N/A').' <br/> '.(isset($_SERVER['AWS_LB_PUBLIC_IP']) ? $_SERVER['AWS_LB_PUBLIC_IP'] : 'N/A')],
-                                        ['Client Global IP', request()->ip()],
                                     ]"
                                 />
                             </x-block>

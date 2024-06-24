@@ -1,4 +1,4 @@
- <div class="not-prose relative bg-slate-50 rounded-xl overflow-hidden dark:bg-slate-800/25">
+ <div {{ $attributes->merge(['class' => 'not-prose relative bg-slate-50 rounded-xl overflow-hidden dark:bg-slate-800/25']) }}>
     <div class="relative rounded-xl overflow-auto">
         <div class="shadow-sm overflow-hidden my-4">
             @if (isset($options))
