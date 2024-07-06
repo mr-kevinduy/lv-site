@@ -26,6 +26,7 @@
                                         ['SERVER_ADDR', $_SERVER['SERVER_ADDR']],
                                         ['EC2 Hostname (OS)', getServerHostname().' ('.getServerOS('pretty_name').')'],
                                         ['Client Global IP', request()->ip()],
+                                        ['Agent OS', getAgentOS($_SERVER['HTTP_USER_AGENT'])],
                                     ]"
                                 />
 
