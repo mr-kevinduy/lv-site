@@ -1,3 +1,12 @@
+# Application
+
+```sh
+# Update .env
+APP_URL=http://yourdomain.com
+APP_VERSION=1.0.0
+
+```
+
 ## Infra
 
 | Target | Name | Value | AZ |

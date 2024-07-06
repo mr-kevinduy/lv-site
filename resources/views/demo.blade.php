@@ -28,5 +28,6 @@
         <script src="/js/lib.js"></script>
         <script src="/js/common.js"></script>
         <script src="/js/index.js"></script>
+        <script src="{{ env('APP_URL').'/js/test-http-absolute-url.js' }}"></script>
     </body>
 </html>
