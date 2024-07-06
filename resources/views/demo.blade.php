@@ -10,8 +10,8 @@
         @include('_head')
 
         <!--[if lt IE 9]>
-        <script src="{{ asset('js/html5shiv.js?v=' . env('APP_VERSION')) }}"></script>
-        <script src="{{ asset('js/selectivizr.js?v=' . env('APP_VERSION')) }}"></script>
+        <script src="/js/html5shiv.js"></script>
+        <script src="/js/selectivizr.js"></script>
         <![endif]-->
     </head>
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">
@@ -25,8 +25,8 @@
             </div>
         </div>
 
-        <script src="{{ asset('js/lib.js?v=' . env('APP_VERSION')) }}"></script>
-        <script src="{{ asset('js/common.js?v=' . env('APP_VERSION')) }}"></script>
-        <script src="{{ asset('js/index.js?v=' . env('APP_VERSION')) }}"></script>
+        <script src="/js/lib.js"></script>
+        <script src="/js/common.js"></script>
+        <script src="/js/index.js"></script>
     </body>
 </html>
