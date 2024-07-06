@@ -4,8 +4,10 @@
 # Update .env
 APP_URL=http://yourdomain.com
 APP_VERSION=1.0.0
-
 ```
+
+Link demo rtmp on-demand:
+https://github.com/matthew1000/gstreamer-cheat-sheet/blob/master/rtmp.md
 
 ## Infra
 

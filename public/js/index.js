@@ -5,7 +5,7 @@
 
     var getVideo = function() {
         var poster = "https://vjs.zencdn.net/v/oceans.png";
-        var videoPath = "rtmp://localhost/fms/videos_name/mp4/videos_name_speed.mp4";
+        var videoPath = "rtmp://matthewc.co.uk/vod/scooter.flv";
 
         var flashvars = {
             src: videoPath,
