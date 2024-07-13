@@ -9,3 +9,5 @@ Route::get('/', function () {
 Route::get('/demo', function () {
     return view('demo');
 });
+
+require_once dirname(__FILE__).'/admin.php';
